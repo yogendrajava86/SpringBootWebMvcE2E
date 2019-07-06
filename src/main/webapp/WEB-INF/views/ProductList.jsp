@@ -11,7 +11,8 @@
 <h3>WELCOME TO PRODUCT DATA</h3>
 <hr/>
 <div style="text-align:center"><a href="add">Add Product</a></div>
-<table>
+${message}
+<table border="1" width="100%">
 	<tr>
 		<th>ID</th>
 		<th>CODE</th>
@@ -19,7 +20,8 @@
 		<th>COST</th>
 		<th>GST</th>
 		<th>IMAGE</th>
-		<th>Detail</th>
+		<th>CATEGORY</th>
+		<th>DETAIL</th>
 		<th colspan="2">OPERATIONS</th>
 	</tr>
 	
@@ -31,6 +33,12 @@
 			<td><c:out value="${ob.prodCost}"/> </td>
 			<td><c:out value="${ob.gst}"/> </td>
 			<td><img src="/myapp/images/uploadingDir/${ob.images[0]}" width="75" height="50"/> </td>
+			<td>
+				<c:forEach items="${ob.prodCategory}" var="ca">
+					<c:out value="${ca.catName}"/>
+				</c:forEach>
+			
+			 </td>
 			<td><c:out value="${ob.prodDetail}"/> </td>
 			<td>
 				<a href="delete?id=${ob.prodId}">DELETE</a>

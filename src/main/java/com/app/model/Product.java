@@ -3,7 +3,8 @@ package com.app.model;
 
 
 import java.util.List;
-import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -18,6 +19,8 @@ import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 @Table(name="prodtabs30")
 public class Product {
@@ -31,7 +34,10 @@ public class Product {
 	@Column(name="pcode")
 	private String prodCode;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade = {
+            CascadeType.MERGE,
+            CascadeType.REFRESH
+        })
 	@JoinTable(name="prodcattbls",joinColumns=@JoinColumn(name="pidFk"),inverseJoinColumns=@JoinColumn(name="cidFk"))
 	private List<Categories> prodCategory;
 	@Column(name="pdetail")

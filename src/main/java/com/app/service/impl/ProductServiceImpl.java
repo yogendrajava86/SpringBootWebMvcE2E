@@ -36,9 +36,8 @@ public class ProductServiceImpl implements ProductService {
 		repo.deleteById(id);
 	}
 	@Override
-	public Optional<Product> getProductById(Integer id) {
-		// TODO Auto-generated method stub
-		
-		return repo.findById(id);
+	public Product getProductById(Integer id) {
+		Optional<Product> p=repo.findById(id);
+		return p.get();
 	}
 }

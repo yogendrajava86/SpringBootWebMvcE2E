@@ -9,5 +9,5 @@ public interface ProductService {
 	public Integer saveProduct(Product p);
 	public List<Product> getAllProducts();
 	public void deleteProduct(Integer id);
-	public Optional<Product> getProductById(Integer id);
+	public Product getProductById(Integer id);
 }

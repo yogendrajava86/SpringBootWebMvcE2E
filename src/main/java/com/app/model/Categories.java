@@ -19,8 +19,6 @@ public class Categories {
 	@Column(name="cname")
 	private String catName;
 	
-	@ManyToMany(mappedBy="prodCategory")
-	private List<Product> prods;
 	
 	public Categories() {
 		super();
@@ -42,18 +40,25 @@ public class Categories {
 		this.catName = catName;
 	}
 
-	public List<Product> getProds() {
-		return prods;
-	}
-
-	public void setProds(List<Product> prods) {
-		this.prods = prods;
-	}
-
 	@Override
 	public String toString() {
-		return "Categories [catId=" + catId + ", catName=" + catName + ", prods=" + prods + "]";
+		return "Categories [catId=" + catId + ", catName=" + catName + "]";
 	}
+
+
+	/*
+	 * @ManyToMany(mappedBy="prodCategory") private List<Product> prods;
+	 * 
+	 * public List<Product> getProds() { return prods; }
+	 * 
+	 * public void setProds(List<Product> prods) { this.prods = prods; }
+	 */
+
+	
+	/*
+	 * @Override public String toString() { return "Categories [catId=" + catId +
+	 * ", catName=" + catName + ", prods=" + prods + "]"; }
+	 */
 	
 
 }
